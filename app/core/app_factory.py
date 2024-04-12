@@ -8,6 +8,7 @@ from app.core.settings import settings
 from app.exceptions import EntityAlreadyExistsException
 #from app.routers.user import router as user_router
 from app.routers.status import router as get_status
+from app.routers.user import router as user_router
 #from app.services import user_service
 
 
@@ -29,6 +30,7 @@ def create_app():
     app = FastAPI(redoc_url=None, title="Controlling prices together 2024", lifespan=lifespan)
 
     app.include_router(get_status)
+    app.include_router(user_router)
 
     app.add_middleware(
         CORSMiddleware,
