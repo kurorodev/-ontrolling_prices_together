@@ -10,9 +10,8 @@ class Base(DeclarativeBase):
     ...
 
 
-from app.models.product import Product  # noqa: F401, E402
 from app.models.user import User  # noqa: F401, E402
-from app.models.shop import Shop  # noqa: F401, E402
+from app.models.photo import Photo 
 
 _engine: Engine = None
 _session_factory: scoped_session[Session] = None
