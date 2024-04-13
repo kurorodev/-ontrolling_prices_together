@@ -1,0 +1,160 @@
+@font-face {
+  font-family: "MontserratAlternates-Regular";  
+  src: url("/app/data/Montserrat Alternates.ttf") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: .2s;
+}
+
+p{
+  font-family: "MontserratAlternates-Regular";
+  color: rgb(186, 248, 248);
+}
+
+button{
+  border: 2px solid #004ff8;
+  border-radius: 3px;
+  background: local;
+  cursor: pointer;
+  max-width: 500px;
+  min-width: 150px;
+  height: 40px;
+}
+
+input{
+  font-family: "MontserratAlternates-Regular";
+  color: rgb(186, 248, 248);
+  border: 2px solid #004ff8;
+  border-radius: 3px;
+  padding-left: 5px;
+  background: local;
+  cursor: pointer;
+  width: 300px;
+  height: 30px;
+}
+
+input:focus{
+  color: black;
+  background-color: white;
+  transform: scale(1.05);
+  cursor:text
+}
+
+
+
+button:hover{
+  transform: scale(1.05);
+}
+
+button:active{
+  /* filter: brightness(50%); */
+  background: #004ff8;
+}
+
+body {
+	/* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+	background: linear-gradient(-45deg, #1f00ce, #090030, rgb(14, 2, 182), #0d0030);
+  background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+.loginbutton, .registerbutton {
+  margin-top: 20px;
+}
+
+.authorization{
+  margin: auto;
+  margin-top: 25vh;
+  max-width: 700px;
+  min-width: 400px;
+  width: calc(100% - 250px);
+  height: 200px;
+  /* border: 2px solid #002a85;
+  border-radius: 3px; */
+}
+
+.welcome{
+  display: block;
+  text-align: center;
+  font-size: 5vh;
+  font-weight: 800;
+  opacity: 0;
+  animation: finalFade 1 3s ease-in;
+  animation-fill-mode: forwards;
+  animation-delay: .5s;
+}
+
+.boldword{
+  font-size: 5vh;
+  margin-left: calc(50% - 18vh);
+  margin-top:10px;
+}
+
+.login{
+  display: none;
+  border: 2px solid #004ff8;
+  border-radius: 3px;
+  height: 300px;
+  
+  /* text-align: center; */
+  
+}
+
+.logininfo{
+  margin-left: 5vw;
+  margin-top: 20px;
+  line-height:30px;
+}
+
+.register{
+  display: none;
+  border: 2px solid #004ff8;
+  border-radius: 3px;
+  height: 300px;
+}
+
+.registerinfo{
+  margin-left: 5vw;
+  margin-top: 20px;
+  line-height:30px;
+}
+
+@keyframes finalFade{
+  0%{opacity: 0;}
+  30%{opacity: 1;}
+  80%{opacity: .9;}
+  100%{opacity: 1;}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* .{
+  -webkit-animation: finalFade 1 5s ease-in;
+  -moz-animation: finalFade 1 5s ease-in;
+  -o-animation: finalFade 1 5s ease-in;
+  animation: finalFade 1 5s ease-in;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  /* -webkit-animation-delay: 22s;
+  -moz-animation-delay: 22s;
+  -o-animation-delay: 22s; 
+  animation-delay: 1s;
+}*/

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/style/style.css">
+</head>
+<body>
+    <div id="main">
+        <div class="authorization">
+
+            <div class="welcome">
+                <p>Добро пожаловать</p>
+                <button class="loginbutton"><p>Вход</p></button>
+                <button class="registerbutton"><p>Регистрация</p></button>
+            </div>
+
+            <div class="login">
+                <p class="boldword">Авторизация</p>
+                <div class="logininfo">
+                    <p>Введите почту</p>
+                    <p><input type="text" name="user_name" class="inputtext"></p>
+                </div>
+                <div class="logininfo">
+                    <p>Введите пароль</p>
+                    <p><input type="text" name="user_name" class="inputtext"></p>
+                </div>
+                <div class="logininfo">
+                    <button class="submit"><p>Вход</p></button>
+                    <button class="back" onclick="returnBackPage()"><p>Назад</p></button>
+                </div>
+            </div>
+
+            <div class="register">
+                <p class="boldword">Регистрация</p>
+                <div class="registerinfo">
+                    <p>Введите почту</p>
+                    <p><input type="text" name="user_name" class="inputtext"></p>
+                </div>
+                <div class="registerinfo">
+                    <p>Введите пароль</p>
+                    <p><input type="text" name="user_name" class="inputtext"></p>
+                </div>
+                <div class="registerinfo">
+                    <button class="submit1"><p>Регистрация</p></button>
+                    <button class="back" onclick="returnBackPage()"><p>Назад</p></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<script src="src/script/script.js"></script>
+<script src="src/script/animation.js"></script>
+<script src="src/script/connector.js"></script>
+</body>
+</html>
