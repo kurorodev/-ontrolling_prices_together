@@ -1,14 +1,17 @@
-import registerNewUser from '/app/src/script/connector.js'
+import {registerNewUser,LoginIn} from '/app/src/script/connector.js'
 
 const $loginbutton = document.querySelector('.loginbutton')
 const $registerbutton = document.querySelector('.registerbutton')
 const $welcome = document.querySelector('.welcome')
 const $register = document.querySelector('.register')
 const $login = document.querySelector('.login')
+const $submitlogin = document.querySelector('.submitlogin')
 const $submitregister = document.querySelector('.submitregister')
 const $regemail = document.querySelector('.regemail')
 const $regephonenum = document.querySelector('.regphonenum')
 const $regpassword = document.querySelector('.regpassword')
+const $logemail = document.querySelector('.logemail')
+const $logpassword = document.querySelector('.logpassword')
 
 let backpage = []
 let currentpage = $welcome
@@ -39,7 +42,7 @@ $registerbutton.addEventListener('click',()=>{
         }
 })
 
-$submitregister.addEventListener('click',()=>{
+$submitregister.addEventListener('click', async ()=>{
     const emailRegex = new RegExp('([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)')
     const phoneNumRegex = new RegExp('(\\+7|8)[\\s(]*\\d{3}[)\\s]*\\d{3}[\\s-]?\\d{2}[\\s-]?\\d{2}')
     const passwordRegex = new RegExp('(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}')
@@ -52,14 +55,28 @@ $submitregister.addEventListener('click',()=>{
 
     if(boolRegexedEmail && boolRegexedPhoneNum && boolRegexedPassword){
         const userData = JSON.stringify({userdata:{email: $regemail.value, phone_number:$regephonenum.value, password: $regpassword.value}})
-        const tryRegister = registerNewUser(userData)
+        const registerData = JSON.parse(await registerNewUser(userData))
+        console.log(registerData)
+        alert(registerData)
     }
     else{
         alert('Какое-то поле заполненно неверно')
     }
 })
 
-function returnBackPage() {
+$submitlogin.addEventListener('click', async ()=>{
+    const userData = JSON.stringify({userdata:{email: $logemail.value, password: $logpassword.value}})
+    try{
+        const loginData = JSON.parse(await LoginIn(userData))
+        console.log(loginData)
+        alert(loginData)
+    }
+    catch (error){
+        alert('Ошибка при входе пользователя: ' + error)
+    }
+})
+
+export function returnBackPage() {
     const currentbackpage = backpage.slice(-1)[0]
     let anim = currentpage.animate({opacity: 0}, 300)
         anim.onfinish = ev => {

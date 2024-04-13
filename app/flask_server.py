@@ -17,14 +17,33 @@ def process_get_shop_info():
     data = testdata()
     return jsonify(data)
 
-@app.route('/register_new_user', methods=['POST'])
+
+"""Для регистрации"""
+
+@app.route('/register', methods=['POST'])
 def process_register_new_user():
     data = request.json['userdata']
     """
     Функция в бд для регистрации
     newdata = func()
+
+    Вернуть jsonify(готовый словарь)
     """
-    return jsonify(data)
+    return jsonify({'aaaa':10,'bbbb':10})
+
+
+"""Для Входа"""
+
+@app.route('/login', methods=['POST'])
+def process_login_in():
+    data = request.json['userdata']
+    """
+    Функция в бд для входа
+    newdata = func()
+    
+    Вернуть jsonify(готовый словарь)
+    """
+    return jsonify({'aaaa':10,'bbbb':10})
  
 if __name__ == '__main__':
     app.run(debug=True,port=5501)
