@@ -11,7 +11,6 @@
         <label for="photo">
             <p>Выберите название/адресс магазина</p>
         </label>
-        <input type="file" name="photo" accept="image/png, image/jpeg">
     </div>
     <form>
         <label for="fruits">Выберите фрукт:</label>
@@ -21,8 +20,11 @@
           <option value="orange">Апельсин</option>
         </select>
       </form>
-    <button onclick="getShopInfo()"></button>
+    
+    <input type="file" accept="image/png, image/jpeg" id="modelimage">
+    <button class="submitfile"><p>Отправить</p></button>
 
-<script src="/app/src/script/connector.js"></script>
+<script src="/app/src/script/connector.js" type= "module"></script>
+<script src="/app/src/script/userScript.js" type= "module"></script>
 </body>
 </html>

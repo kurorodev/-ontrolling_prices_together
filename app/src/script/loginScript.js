@@ -76,7 +76,7 @@ $submitlogin.addEventListener('click', async ()=>{
     }
 })
 
-export function returnBackPage() {
+function returnBackPage() {
     const currentbackpage = backpage.slice(-1)[0]
     let anim = currentpage.animate({opacity: 0}, 300)
         anim.onfinish = ev => {

@@ -58,4 +58,25 @@ export function LoginIn(jsonData){
     })
 }
 
+export default function saveFile(formData){
+    let xhr = new XMLHttpRequest();
+    alert(1)
+    xhr.open("POST", "/save_file", true);
+    alert(2)
+    // xhr.setRequestHeader("Content-Type", "application/document");
+    alert(formData)
+    xhr.send(formData)
+    return new Promise(resolve => {
+        alert(5)
+        xhr.onreadystatechange = function(){
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const result = xhr.responseText
+            return resolve(result)
+        }
+        if (this.status != 200) {
+            alert('Ошибка: '+(this.status ? this.statusText : 'запрос не удался'))
+        }}
+    })
+}
+
 // export default {registerNewUser, LoginIn}

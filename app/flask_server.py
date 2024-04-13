@@ -9,7 +9,11 @@ app = Flask(__name__)
 #     data = request.json['userdata']
 #     cruser = create_new_user(data['username'],data['userpassword'])
 #     return jsonify(data)
- 
+
+@app.route('/')
+def index():
+    return app.send_static_file('ю/app/src/pages/user.html')
+
 @app.route('/get_shop_info', methods=['GET'])
 def process_get_shop_info():
     print('aaaaaaaaaa')
@@ -44,6 +48,16 @@ def process_login_in():
     Вернуть jsonify(готовый словарь)
     """
     return jsonify({'aaaa':10,'bbbb':10})
+
+
+@app.route('/save_file', methods=['POST'])
+def save_file():
+    try:
+        data = request.files.get('file')
+        data.save(f"./app/data/model_image/{data.filename}")
+    except Exception:
+        return jsonify({'resoult': False})
+    return jsonify({'resoult': True})
  
 if __name__ == '__main__':
     app.run(debug=True,port=5501)
