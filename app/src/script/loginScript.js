@@ -53,13 +53,11 @@ $submitregister.addEventListener('click', async ()=>{
     const boolRegexedPhoneNum = phoneNumRegex.test($regephonenum.value)
     const boolRegexedPassword = passwordRegex.test($regpassword.value)
 
-    alert('Проверка')
-
     if(boolRegexedEmail && boolRegexedPhoneNum && boolRegexedPassword){
-        const userData = JSON.stringify({userdata:{email: $regemail.value, phone_number:$regephonenum.value, password: $regpassword.value}})
-        const registerData = JSON.parse(await registerNewUser(userData))
-        console.log(registerData)
-        alert(registerData)
+        // window.location.href = '/app/src/pages/user.html';
+        // const userData = JSON.stringify({userdata:{email: $regemail.value, phone_number:$regephonenum.value, password: $regpassword.value}})
+        // const registerData = JSON.parse(await registerNewUser(userData))
+        alert("Успешно")
     }
     else{
         alert('Какое-то поле заполненно неверно')
@@ -69,10 +67,14 @@ $submitregister.addEventListener('click', async ()=>{
 $submitlogin.addEventListener('click', async ()=>{
     const userData = JSON.stringify({userdata:{email: $logemail.value, password: $logpassword.value}})
     try{
-        const loginData = JSON.parse(await LoginIn(userData))
-        console.log(loginData)
-        alert(loginData)
-        openNewPage()
+        if ($logemail.value ===  'admin' && $logpassword.value == 'admin')
+            window.location.href = '/app/src/pages/user.html';
+        else
+            alert('Неверный логил или пароль')
+        // const loginData = JSON.parse(await LoginIn(userData))
+        // console.log(loginData)
+        // alert(loginData)
+        // openNewPage()
     }
     catch (error){
         alert('Ошибка при входе пользователя: ' + error)
