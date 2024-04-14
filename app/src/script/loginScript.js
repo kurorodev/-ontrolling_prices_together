@@ -12,6 +12,8 @@ const $regephonenum = document.querySelector('.regphonenum')
 const $regpassword = document.querySelector('.regpassword')
 const $logemail = document.querySelector('.logemail')
 const $logpassword = document.querySelector('.logpassword')
+const $back1 = document.querySelector('.back1')
+const $back2 = document.querySelector('.back2')
 
 let backpage = []
 let currentpage = $welcome
@@ -77,7 +79,7 @@ $submitlogin.addEventListener('click', async ()=>{
     }
 })
 
-function returnBackPage() {
+$back1.addEventListener('click' ,() =>{
     const currentbackpage = backpage.slice(-1)[0]
     let anim = currentpage.animate({opacity: 0}, 300)
         anim.onfinish = ev => {
@@ -86,10 +88,16 @@ function returnBackPage() {
             currentpage = currentbackpage
         }
     backpage.pop()
-}
+})
 
-function openNewPage(){
-    window.location.href = './app/src/pages/user.html'
-}
-
+$back2.addEventListener('click' ,() =>{
+    const currentbackpage = backpage.slice(-1)[0]
+    let anim = currentpage.animate({opacity: 0}, 300)
+        anim.onfinish = ev => {
+            currentpage.style.display = 'none'
+            currentbackpage.style.display = 'block'
+            currentpage = currentbackpage
+        }
+    backpage.pop()
+})
 
