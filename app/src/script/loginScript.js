@@ -1,4 +1,4 @@
-import {registerNewUser,LoginIn,downloadFile} from '/app/src/script/connector.js'
+import {registerNewUser,LoginIn} from '/app/src/script/connector.js'
 
 const $loginbutton = document.querySelector('.loginbutton')
 const $registerbutton = document.querySelector('.registerbutton')
