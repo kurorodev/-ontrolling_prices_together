@@ -17,7 +17,7 @@ function getShopInfo(){
 export function registerNewUser(jsonData){
     let xhr = new XMLHttpRequest();
     alert(1)
-    xhr.open("POST", "/register", true);
+    xhr.open("POST", "users/create", true);
     alert(2)
     xhr.setRequestHeader("Content-Type", "application/json");
     alert(3)

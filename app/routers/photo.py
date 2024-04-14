@@ -5,7 +5,7 @@ router = APIRouter(prefix="/files", tags=["Files"])
 
 @router.post("/check_price")
 async def check_price(file: Annotated[bytes, File()]):
-    return "Цена соответствует социальной цене"
+    return "Цена соответствует Меморандуму"
 
 @router.post("/check_socprice")
 async def check_socprice(file: Annotated[bytes, File()]):

@@ -1,8 +1,10 @@
 import cv2
+import csv
 import pytesseract
 from ultralytics import YOLO
 from PIL import Image, ImageEnhance
 import numpy as np
+import pandas as pd
 from collections import Counter
 import easyocr
 import ssl
@@ -10,9 +12,9 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 #pytesseract.pytesseract.tesseract_cmd = r'D:\yolo\hackt\tesseract\tesseract.exe'
 pytesseract.pytesseract.tesseract_cmd = r'/usr/local/bin/tesseract'
-model = YOLO('best.pt')
+model = YOLO('app/model/best.pt')
 reader = easyocr.Reader(["ru"])
-def main(imgpath):
+def main(imgpath, text_file_name):
     inf = []
     def dominant_color(img):
         np_img = np.array(img)
@@ -24,9 +26,12 @@ def main(imgpath):
         else:
             return 0
 
-    
     image = cv2.imread(imgpath)
-    results = model(image, conf=0.5, max_det=3)
+    results = model.predict(image)
+    for r in results:
+        im_array = r.plot()  # plot a BGR numpy array of predictions
+        im = Image.fromarray(im_array[..., ::-1])  # RGB PIL image
+        im.show()  # show image
     boxes = results[0].boxes
     redcount = 0
     for box in boxes:
@@ -38,12 +43,22 @@ def main(imgpath):
         #cv2.waitKey(0)
         #data = (pytesseract.image_to_string(cropped_object, lang='rus+eng', config='--psm 13 --oem 1')).replace('\n', '')
         data = reader.readtext(cropped_object, detail=0, paragraph=False)
-        print(data)
+        #print(data)
         inf.append(data)
+
+        df = pd.DataFrame(inf[1:])
+        print(df)
+
+        df.to_csv(text_file_name, index=False)
+
     if redcount == 3:
         print('soc')
         inf.append(1)
     else:
         inf.append(0)
+
     return inf
-print(main('train/IMG_5921.jpg'))
+
+    
+
+print(main('app/model/test/IMG_5770.jpg', 'app/model/subm.csv'))
