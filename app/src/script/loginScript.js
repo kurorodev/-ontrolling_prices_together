@@ -1,4 +1,4 @@
-import {registerNewUser,LoginIn} from '/app/src/script/connector.js'
+import {registerNewUser,LoginIn,downloadFile} from '/app/src/script/connector.js'
 
 const $loginbutton = document.querySelector('.loginbutton')
 const $registerbutton = document.querySelector('.registerbutton')
@@ -70,6 +70,7 @@ $submitlogin.addEventListener('click', async ()=>{
         const loginData = JSON.parse(await LoginIn(userData))
         console.log(loginData)
         alert(loginData)
+        openNewPage()
     }
     catch (error){
         alert('Ошибка при входе пользователя: ' + error)
@@ -87,5 +88,8 @@ function returnBackPage() {
     backpage.pop()
 }
 
+function openNewPage(){
+    window.location.href = './app/src/pages/user.html'
+}
 
 

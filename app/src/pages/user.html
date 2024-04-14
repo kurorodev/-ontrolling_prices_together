@@ -8,23 +8,29 @@
 </head>
 <body>
     <div id="main">
-        <label for="photo">
-            <p>Выберите название/адресс магазина</p>
-        </label>
+        <div class="windowdata">
+            <div class="shopblock">
+                <p>Введите название/адрес магазина</p>
+                <input list="options" class="inputshops" placeholder="Введите адрес/ Наименование">
+                <datalist id="options">
+                    <option value="Вариант 1"> AAAA</option>
+                    <option value="Вариант 2"> dDDDD</option>
+                </datalist>
+            </div>
+            <div class="shopblock">
+                <label class="input-file">
+                    <input type="file" id = "modelimage" accept="image/png, image/jpeg">		
+                    <span><p>Выберите файл</p></span>
+                </label>
+                <button class="submitfile"><p>Отправить</p></button>
+            </div>
+        </div>
     </div>
-    <form>
-        <label for="fruits">Выберите фрукт:</label>
-        <select id="fruits" name="fruits">
-          <option value="apple">Яблоко</option>
-          <option value="banana">Банан</option>
-          <option value="orange">Апельсин</option>
-        </select>
-      </form>
-    
-    <input type="file" accept="image/png, image/jpeg" id="modelimage">
-    <button class="submitfile"><p>Отправить</p></button>
 
 <script src="/app/src/script/connector.js" type= "module"></script>
 <script src="/app/src/script/userScript.js" type= "module"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
 </body>
 </html>

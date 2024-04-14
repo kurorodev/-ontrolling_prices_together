@@ -1,6 +1,6 @@
 # from database.database import create_new_user
 from flask import Flask, request, jsonify
-from test import testdata
+from get_exel import get_exel_data
 
 app = Flask(__name__)
 
@@ -12,13 +12,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return app.send_static_file('ю/app/src/pages/user.html')
+    return app.send_static_file('/app/src/pages/user.html')
 
 @app.route('/get_shop_info', methods=['GET'])
 def process_get_shop_info():
-    print('aaaaaaaaaa')
-    # data = request.json['getShopInfo']
-    data = testdata()
+    print('ok')
+    data = get_exel_data()
     return jsonify(data)
 
 
@@ -50,6 +49,22 @@ def process_login_in():
     return jsonify({'aaaa':10,'bbbb':10})
 
 
+"""Для магазинов"""
+
+@app.route('/load_shop_info', methods=['GET'])
+def load_shop_info():
+    data = {'data':{'Magnit':'kosmonavtov 27', 'pyaterka': 'dzerjinskogo 222', '9%':'svobodi'}}
+    """
+    Функция в бд для получения данных
+    newdata = func()
+    
+    Вернуть jsonify(готовый словарь)
+    """
+    print('ok')
+    return jsonify(data)
+
+
+
 @app.route('/save_file', methods=['POST'])
 def save_file():
     try:
@@ -58,6 +73,16 @@ def save_file():
     except Exception:
         return jsonify({'resoult': False})
     return jsonify({'resoult': True})
- 
+
+if __name__ == '__main__':
+    app.run(debug=True,port=5501)
+
+
+@app.route('/get_file')
+def get_file():
+    print('y')
+    file_path = './app/data/12_02.xlsx'
+    return send_file(file_path, as_attachment=True)
+
 if __name__ == '__main__':
     app.run(debug=True,port=5501)
