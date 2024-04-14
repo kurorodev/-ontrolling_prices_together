@@ -1,19 +1,18 @@
-export function getShopInfo(){
+function getShopInfo(){
     alert('aaaaaa')
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "/get_shop_info", true);
+    xhr.open("GET", "/request", true);
     xhr.setRequestHeader("Content-Type", "application/json");
-    return new Promise(resolve =>{
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                let result = xhr.responseText
-                return resolve(result)
-            }
-            if (this.status != 200) {
-                alert('Ошибка: '+(this.status ? this.statusText : 'запрос не удался'))
-            }}
-    }
-)}
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            let x = xhr.responseText
+            alert(x)
+        }
+        if (this.status != 200) {
+            alert('Ошибка: '+(this.status ? this.statusText : 'запрос не удался'))
+        }}
+    xhr.send()
+}
 
 export function registerNewUser(jsonData){
     let xhr = new XMLHttpRequest();
@@ -59,7 +58,7 @@ export function LoginIn(jsonData){
     })
 }
 
-export function saveFile(formData){
+export default function saveFile(formData){
     let xhr = new XMLHttpRequest();
     alert(1)
     xhr.open("POST", "/save_file", true);
@@ -79,3 +78,5 @@ export function saveFile(formData){
         }}
     })
 }
+
+// export default {registerNewUser, LoginIn}

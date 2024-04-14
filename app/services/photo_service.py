@@ -1,4 +1,4 @@
-import app.core.db as db
+'''import app.core.db as db
 import app.repositories.photo_repository as photo_repo
 from app.exceptions import (
     EntityAlreadyExistsException,
@@ -11,4 +11,4 @@ def create(dto: PhotoSchema) -> PhotoSchema:
     with db.create_session() as session:
         photo = photo_repo.save(session, photo)
 
-        return PhotoSchema.model_validate(photo)
+        return PhotoSchema.model_validate(photo)'''
