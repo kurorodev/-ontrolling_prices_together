@@ -1,17 +1,17 @@
-function getShopInfo(){
-    alert('aaaaaa')
+export function getShopInfo(){
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "/request", true);
-    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.open("GET", "/get_shop_info", true);
+    // xhr.setRequestHeader("Content-Type", "application/json");
+    return new Promise(resolve => {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            let x = xhr.responseText
-            alert(x)
+            let result = xhr.responseText
+            return resolve(result)
         }
         if (this.status != 200) {
             alert('Ошибка: '+(this.status ? this.statusText : 'запрос не удался'))
         }}
-    xhr.send()
+    })
 }
 
 export function registerNewUser(jsonData){
@@ -58,7 +58,7 @@ export function LoginIn(jsonData){
     })
 }
 
-export default function saveFile(formData){
+export function saveFile(formData){
     let xhr = new XMLHttpRequest();
     alert(1)
     xhr.open("POST", "/save_file", true);
@@ -69,12 +69,12 @@ export default function saveFile(formData){
     return new Promise(resolve => {
         alert(5)
         xhr.onreadystatechange = function(){
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            const result = xhr.responseText
-            return resolve(result)
-        }
-        if (this.status != 200) {
-            alert('Ошибка: '+(this.status ? this.statusText : 'запрос не удался'))
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const result = xhr.responseText
+                return resolve(result)
+            }
+            if (this.status != 200) {
+                alert('Ошибка: '+(this.status ? this.statusText : 'запрос не удался'))
         }}
     })
 }
