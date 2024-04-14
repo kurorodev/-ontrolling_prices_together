@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/style/style.css">
+</head>
+<body>
+    <div id="main">
+        <div class="authorization">
+
+            <div class="welcome">
+                <p>Добро пожаловать</p>
+                <button class="loginbutton"><p>Вход</p></button>
+                <button class="registerbutton"><p>Регистрация</p></button>
+            </div>
+
+            <div class="login">
+                <p class="boldword">Авторизация</p>
+                <div class="logininfo">
+                    <p>Введите почту</p>
+                    <p><input type="text" class="logemail"></p>
+                </div>
+                <div class="logininfo">
+                    <p>Введите пароль</p>
+                    <p><input type="text" name="user_name" class="logpassword"></p>
+                </div>
+                <div class="logininfo">
+                    <button class="submitlogin"><p>Вход</p></button>
+                    <button class="back" onclick="returnBackPage()"><p>Назад</p></button>
+                </div>
+            </div>
+
+            <div class="register">
+                <p class="boldword">Регистрация</p>
+                <div class="registerinfo">
+                    <p>Номер телефона</p>
+                    <p><input type="text" class="regphonenum" value="89171295988"></p>
+                </div>
+                <div class="registerinfo">
+                    <p>Введите почту</p>
+                    <p><input type="text" class="regemail" value="sadasdad@mail.ru"></p>
+                </div>
+                <div class="registerinfo">
+                    <p>Введите пароль</p>
+                    <p><input type="text" class="regpassword" placeholder="Регистр и спец символы" value="G21312asasfafsa!"></p>
+                </div>
+                <div class="registerinfo">
+                    <button class="submitregister"><p>Регистрация</p></button>
+                    <button class="back" onclick="returnBackPage()"><p>Назад</p></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<script src="src/script/script.js" type= "module" ></script>
+<script src="src/script/animation.js" type= "module" ></script>
+<script src="src/script/connector.js" type= "module" ></script>
+</body>
+</html>

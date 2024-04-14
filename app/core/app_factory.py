@@ -7,7 +7,7 @@ from app.core import db
 from app.core.settings import settings
 from app.exceptions import EntityAlreadyExistsException
 from app.routers.status import router as get_status
-from app.routers.shop import router as shop_router
+#from app.routers.shop import router as shop_router
 from app.routers.user import router as user_router
 from app.routers.photo import router as photo_router
 #from app.services import user_service
@@ -33,7 +33,7 @@ def create_app():
     app.include_router(get_status)
     app.include_router(user_router)
     app.include_router(photo_router)
-    app.include_router(shop_router)
+    #app.include_router(shop_router)
 
     app.add_middleware(
         CORSMiddleware,

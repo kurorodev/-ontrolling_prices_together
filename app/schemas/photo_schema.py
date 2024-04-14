@@ -1,5 +1,5 @@
-from pydantic import BaseModel
-from typing_extensions import Annotated
+# from pydantic import BaseModel
+# from typing_extensions import Annotated
 
-class PhotoSchema(BaseModel):
-    file_bytes: Annotated(str)
+# class PhotoSchema(BaseModel):
+#     file_bytes: Annotated(str)

@@ -27,11 +27,11 @@ def get_current_user(user: Annotated[User, Depends(authenticate)]):
     return UserSchema.model_validate(user)
 
 @router.get(
-    "/{user_id}", response_model=UserSchema, dependencies=[Depends(require_admin)]
+    "/{user_id}", response_model=UserSchema
 )
 def get_user_by_id(user_id: int):
     return user_service.get_by_id(user_id)
 
-@router.delete("/{user_id}", dependencies=[Depends(require_admin)])
+@router.delete("/{user_id}")
 def delete_user(user_id: int):
     return user_service.delete(user_id)
